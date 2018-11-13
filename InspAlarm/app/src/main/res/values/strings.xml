@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">InspAlarm</string>
+    <string name="turn_on">Turn On</string>
+    <string name="turn_off">Turn off</string>
+    <string name="user_action">UserAction</string>
+    <string name="log_alarm_on">Alarm is now ON</string>
+    <string name="log_alarm_off">Alarm is now OFF</string>
+    <string name="move_text">Get up, move a little !</string>
+    <string name="no_alarms">No active alarms</string>
+    <string name="blank" />
+    <string name="alarm_set">Alarm set to:</string>
+</resources>
