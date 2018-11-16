@@ -33,6 +33,7 @@ public class AlarmReceiver extends WakefulBroadcastReceiver {
         //Mostra a nota musical, caso o dispositivo esteja sem som
         inst.setAlarmImageVisibility(true);
         Vibrator vibrator = (Vibrator)context.getSystemService(Context.VIBRATOR_SERVICE);
-        vibrator.vibrate(VibrationEffect.createOneShot(200, VibrationEffect.DEFAULT_AMPLITUDE));
+        for(int i = 0; i < 30; i++)
+            vibrator.vibrate(VibrationEffect.createOneShot(200, VibrationEffect.DEFAULT_AMPLITUDE));
     }
 }

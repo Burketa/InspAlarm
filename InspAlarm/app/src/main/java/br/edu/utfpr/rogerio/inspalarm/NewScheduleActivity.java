@@ -19,11 +19,11 @@ import android.widget.TimePicker;
 import android.widget.ToggleButton;
 import java.util.Calendar;
 
-public class MainActivity extends AppCompatActivity {
+public class NewScheduleActivity extends AppCompatActivity {
 
     private static final String COLOR = "COLOR";
 
-    private static MainActivity instance;
+    private static NewScheduleActivity instance;
 
     private Calendar calendar = null;
     private AlarmManager alarmManager;
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView activeAlarm;
     private ImageView alarmImage;
 
-    public static MainActivity getInstance() {
+    public static NewScheduleActivity getInstance() {
         return instance;
     }
 
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_new_schedule);
 
         //Guardando referencias para o os elementos usados
         timePicker = findViewById(R.id.timePicker);
@@ -141,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
 
 
             //Criando um intent para setar o alarme
-            Intent myIntent = new Intent(MainActivity.this, AlarmReceiver.class);
+            Intent myIntent = new Intent(NewScheduleActivity.this, AlarmReceiver.class);
             pendingIntent = PendingIntent.getBroadcast(getBaseContext(), 0, myIntent, 0);
 
             //Setamos o alarme para tocar na hora escolhida
@@ -163,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void run() {
                     Schedule newSchedule = new Schedule(timePicker.getHour(), timePicker.getMinute(), 1);
-                    SchedulesDB.getDatabase(MainActivity.this).scheduleDAO().insert(newSchedule);
+                    SchedulesDB.getDatabase(NewScheduleActivity.this).scheduleDAO().insert(newSchedule);
                 }
             }) .start();
 
