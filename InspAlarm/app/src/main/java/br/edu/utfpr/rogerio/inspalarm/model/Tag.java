@@ -1,4 +1,4 @@
-package br.edu.utfpr.rogerio.inspalarm;
+package br.edu.utfpr.rogerio.inspalarm.model;
 
 
 import android.arch.persistence.room.Entity;

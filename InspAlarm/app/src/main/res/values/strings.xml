@@ -9,4 +9,6 @@
     <string name="no_alarms">No active alarms</string>
     <string name="blank" />
     <string name="alarm_set">Alarm set to:</string>
+    <string name="schedule_created">Alarm created</string>
+    <string name="schedule_deleted">Alarm deleted</string>
 </resources>

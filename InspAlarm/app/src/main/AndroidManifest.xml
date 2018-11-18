@@ -3,6 +3,7 @@
     package="br.edu.utfpr.rogerio.inspalarm">
 
     <uses-permission android:name="android.permission.VIBRATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".Activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,8 +21,18 @@
 
         <receiver android:name=".AlarmReceiver" />
 
-        <activity android:name=".CreditsActivity"
-            android:parentActivityName=".MainActivity"></activity>
+        <activity
+            android:name=".Activities.CreditsActivity"
+            android:parentActivityName=".Activities.MainActivity" />
+        <activity
+            android:name=".Activities.NewScheduleActivity"
+            android:parentActivityName=".Activities.MainActivity" />
+        <activity
+            android:name=".Activities.AlarmRingingActivity"
+            android:parentActivityName=".Activities.MainActivity" />
+        <activity
+            android:name=".Activities.QuoteActivity"
+            android:parentActivityName=".Activities.MainActivity"> </activity>
     </application>
 
 </manifest>

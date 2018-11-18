@@ -8,11 +8,11 @@
         android:title="New Alarm"
         app:showAsAction="ifRoom" />
     <item
-        android:id="@+id/set_color_blue"
-        android:title="Blue" />
-    <item
-        android:id="@+id/set_color_red"
-        android:title="Red" />
+        android:id="@+id/quote_new"
+        android:enabled="true"
+        android:title="New Quote"
+        android:visible="true"
+        app:showAsAction="never" />
     <item
         android:id="@+id/credits_button"
         android:icon="@drawable/credits_info"

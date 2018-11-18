@@ -1,7 +1,9 @@
-package br.edu.utfpr.rogerio.inspalarm;
+package br.edu.utfpr.rogerio.inspalarm.Activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import br.edu.utfpr.rogerio.inspalarm.R;
 
 public class CreditsActivity extends AppCompatActivity {
 

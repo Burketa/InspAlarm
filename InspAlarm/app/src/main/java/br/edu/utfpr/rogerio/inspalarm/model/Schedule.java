@@ -1,4 +1,4 @@
-package br.edu.utfpr.rogerio.inspalarm;
+package br.edu.utfpr.rogerio.inspalarm.model;
 
 
 import android.arch.persistence.room.ColumnInfo;
@@ -59,8 +59,12 @@ public class Schedule {
         this.tagId = tagId;
     }
 
-    /*@Override
+    @Override
     public String toString(){
-        return getNome();
-    }*/
+        //Isso é nescessario sernão apareceria 19:2 ao invés de 19:02
+        if(getScheduleMinute() > 10)
+            return Integer.toString(getScheduleHour()) + ":" + Integer.toString(getScheduleMinute()) + " -- " + tagId;
+        else
+            return Integer.toString(getScheduleHour()) + ":0" + Integer.toString(getScheduleMinute()) + " -- " + tagId;
+    }
 }

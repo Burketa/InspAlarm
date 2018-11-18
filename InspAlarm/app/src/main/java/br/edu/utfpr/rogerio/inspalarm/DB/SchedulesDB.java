@@ -1,4 +1,4 @@
-package br.edu.utfpr.rogerio.inspalarm;
+package br.edu.utfpr.rogerio.inspalarm.DB;
 
 import android.arch.persistence.db.SupportSQLiteDatabase;
 import android.arch.persistence.room.Database;
@@ -8,6 +8,9 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 
 import java.util.concurrent.Executors;
+
+import br.edu.utfpr.rogerio.inspalarm.model.Schedule;
+import br.edu.utfpr.rogerio.inspalarm.model.Tag;
 
 @Database(entities = {Schedule.class, Tag.class}, version = 1)
 public abstract class SchedulesDB extends RoomDatabase {
@@ -53,7 +56,7 @@ public abstract class SchedulesDB extends RoomDatabase {
 
     private static void InicialTags(final Context context){
 
-        String[] tags = {"Motivational","Inspirational","Compliment"};
+        String[] tags = {"Motivational", "Inspirational", "Compliment"};
 
         for (String tag : tags) {
 
