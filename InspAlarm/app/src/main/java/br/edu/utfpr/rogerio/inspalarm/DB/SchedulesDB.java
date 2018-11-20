@@ -9,10 +9,11 @@ import android.support.annotation.NonNull;
 
 import java.util.concurrent.Executors;
 
+import br.edu.utfpr.rogerio.inspalarm.model.Quote;
 import br.edu.utfpr.rogerio.inspalarm.model.Schedule;
 import br.edu.utfpr.rogerio.inspalarm.model.Tag;
 
-@Database(entities = {Schedule.class, Tag.class}, version = 1)
+@Database(entities = {Schedule.class, Tag.class, Quote.class}, version = 2)
 public abstract class SchedulesDB extends RoomDatabase {
 
     private static final String DATABASE_NAME = "schedules.db";
@@ -21,9 +22,12 @@ public abstract class SchedulesDB extends RoomDatabase {
 
     public abstract TagDAO tagDAO();
 
+    public abstract  QuoteDAO quoteDAO();
+
     private static SchedulesDB instance;
 
     public static SchedulesDB getDatabase(final Context context) {
+
 
         if (instance == null) {
 
@@ -41,6 +45,7 @@ public abstract class SchedulesDB extends RoomDatabase {
                                 @Override
                                 public void run() {
                                     InicialTags(context);
+                                    //InicialQuotes(context);
                                 }
                             });
                         }
@@ -63,6 +68,21 @@ public abstract class SchedulesDB extends RoomDatabase {
             Tag tagAux = new Tag(tag);
 
             instance.tagDAO().insert(tagAux);
+        }
+    }
+
+    private static void InicialQuotes(final Context context){
+
+        String[] quotes = {"Go do it !", "You can do it !", "You are awesome !"};
+
+        int i = 0;
+
+        for (String quote : quotes) {
+
+            i++;
+            Quote quoteAux = new Quote(quote, i);
+
+            instance.quoteDAO().insert(quoteAux);
         }
     }
 }

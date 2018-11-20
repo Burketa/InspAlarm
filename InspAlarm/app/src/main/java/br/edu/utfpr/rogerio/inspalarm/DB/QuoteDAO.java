@@ -9,7 +9,6 @@ import android.arch.persistence.room.Update;
 import java.util.List;
 
 import br.edu.utfpr.rogerio.inspalarm.model.Quote;
-import br.edu.utfpr.rogerio.inspalarm.model.Schedule;
 
 @Dao
 public interface QuoteDAO {
@@ -24,11 +23,11 @@ public interface QuoteDAO {
     void update(Quote quote);
 
     @Query("SELECT * FROM quotes WHERE id = :id")
-    Schedule queryForId(long id);
+    Quote queryForId(long id);
 
     @Query("SELECT * FROM quotes ORDER BY id ASC")
-    List<Schedule> queryAll();
+    List<Quote> queryAll();
 
     @Query("SELECT * FROM quotes WHERE tagId = :id ORDER BY id ASC")
-    List<Schedule> queryForTipoId(long id);
+    List<Quote> queryForTipoId(long id);
 }
