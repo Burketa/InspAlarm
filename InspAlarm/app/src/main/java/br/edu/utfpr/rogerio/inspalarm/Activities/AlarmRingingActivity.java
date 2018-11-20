@@ -24,6 +24,8 @@ public class AlarmRingingActivity extends AppCompatActivity {
         quote = findViewById(R.id.quote_text);
 
         //Troca o texto para alguma frase com a tag
+
+        //TODO: Colocar pra pegar as frases com tags relacionadas com o schedule criado
         quote.setText("This is your quote");
 
         //Coloca o alarme para tocar

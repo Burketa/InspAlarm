@@ -1,7 +1,9 @@
 package br.edu.utfpr.rogerio.inspalarm.Activities;
 
 import android.app.AlarmManager;
+import android.app.AlertDialog;
 import android.app.PendingIntent;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -137,17 +139,7 @@ public class NewScheduleActivity extends AppCompatActivity {
             Log.d(getString(R.string.user_action), getString(R.string.log_alarm_on));
 
         } else {
-
-            //Cancela o alarme antes setado.
-            alarmManager.cancel(pendingIntent);
-
-            //Retira o BD
-            DeleteSchedule(timePicker.getHour(), timePicker.getMinute());
-
-            //Da um feedback que o alarme foi removido
-            MakeToast(2, timePicker.getHour(), timePicker.getMinute());
-
-            Log.d(getString(R.string.user_action), getString(R.string.log_alarm_off));
+            CancelScheduleWithDialog();
         }
     }
 
@@ -241,4 +233,30 @@ public class NewScheduleActivity extends AppCompatActivity {
         }) .start();
     }
 
+    public void CancelScheduleWithDialog()
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(NewScheduleActivity.this);
+        builder.setMessage("Are you sure ?").setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                //Cancela o alarme antes setado.
+                alarmManager.cancel(pendingIntent);
+
+                //Retira o BD
+                DeleteSchedule(timePicker.getHour(), timePicker.getMinute());
+
+                //Da um feedback que o alarme foi removido
+                MakeToast(2, timePicker.getHour(), timePicker.getMinute());
+
+                Log.d(getString(R.string.user_action), getString(R.string.log_alarm_off));
+            }
+        }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                toggleButton.setChecked(true);
+            }
+        });
+        AlertDialog alert = builder.create();
+        alert.show();
+    }
 }

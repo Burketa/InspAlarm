@@ -35,8 +35,6 @@ public class MainActivity extends AppCompatActivity {
 
         //Popula o listView com os Schedules do BD
         ListSchedules();
-
-
     }
 
     @Override

@@ -9,6 +9,7 @@ import android.support.annotation.NonNull;
 
 import java.util.concurrent.Executors;
 
+import br.edu.utfpr.rogerio.inspalarm.model.Quote;
 import br.edu.utfpr.rogerio.inspalarm.model.Schedule;
 import br.edu.utfpr.rogerio.inspalarm.model.Tag;
 

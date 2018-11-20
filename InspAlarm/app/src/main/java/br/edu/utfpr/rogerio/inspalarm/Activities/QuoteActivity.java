@@ -13,5 +13,7 @@ public class QuoteActivity extends AppCompatActivity {
         setContentView(R.layout.activity_quote);
         setTitle("New Quote");
 
+        //Listar as quotes com suas respectivas tags
+
     }
 }
