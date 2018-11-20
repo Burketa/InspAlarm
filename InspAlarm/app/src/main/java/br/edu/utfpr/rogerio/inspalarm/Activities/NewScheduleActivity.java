@@ -19,6 +19,7 @@ import android.widget.Toast;
 import android.widget.ToggleButton;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Random;
 
 import br.edu.utfpr.rogerio.inspalarm.AlarmReceiver;
 import br.edu.utfpr.rogerio.inspalarm.DB.SchedulesDB;
@@ -177,10 +178,13 @@ public class NewScheduleActivity extends AppCompatActivity {
     //Os argumentos precisam ser final para serem usados nesses metodos
     public void CreateSchedule(final int hour, final int minute)
     {
+        //Random de [0,3]
+        final int random = new Random().nextInt(3) + 1;
+
         new Thread(new Runnable() {
             @Override
             public void run() {
-                Schedule newSchedule = new Schedule(hour, minute, 1);
+                Schedule newSchedule = new Schedule(hour, minute, random);
                 SchedulesDB.getDatabase(NewScheduleActivity.this).scheduleDAO().insert(newSchedule);
             }
         }) .start();

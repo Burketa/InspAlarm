@@ -24,7 +24,7 @@ public class AlarmRingingActivity extends AppCompatActivity {
         quote = findViewById(R.id.quote_text);
 
         //Troca o texto para alguma frase com a tag
-        quote.setText("EAE MALUCOS");
+        quote.setText("This is your quote");
 
         //Coloca o alarme para tocar
         Uri alarmUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);

@@ -61,10 +61,28 @@ public class Schedule {
 
     @Override
     public String toString(){
+
+        String tag;
+
+        switch(tagId) {
+            case 1:
+                tag = "Motivacional";
+                break;
+            case 2:
+                tag = "Inspirational";
+                break;
+            case 3:
+                tag = "Compliment";
+                break;
+            default:
+                tag = "Null";
+                break;
+        }
+
         //Isso é nescessario sernão apareceria 19:2 ao invés de 19:02
         if(getScheduleMinute() > 10)
-            return Integer.toString(getScheduleHour()) + ":" + Integer.toString(getScheduleMinute()) + " -- " + tagId;
+            return Integer.toString(getScheduleHour()) + ":" + Integer.toString(getScheduleMinute()) + " -- " + tag;
         else
-            return Integer.toString(getScheduleHour()) + ":0" + Integer.toString(getScheduleMinute()) + " -- " + tagId;
+            return Integer.toString(getScheduleHour()) + ":0" + Integer.toString(getScheduleMinute()) + " -- " + tag;
     }
 }

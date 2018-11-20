@@ -25,7 +25,7 @@ public interface ScheduleDAO {
     @Query("SELECT * FROM schedules WHERE id = :id")
     Schedule queryForId(long id);
 
-    @Query("SELECT * FROM schedules ORDER BY id ASC")
+    @Query("SELECT * FROM schedules ORDER BY scheduleHour, scheduleMinute ASC")
     List<Schedule> queryAll();
 
     @Query("SELECT * FROM schedules WHERE tagId = :id ORDER BY id ASC")
